@@ -1,10 +1,13 @@
 const express = require("express");
-const model = require("./models");
+const models = require("./models");
+const routes = require("./routes/area.route.js");
 
 const app = express();
-const area = model.areaModel;
+const area = models.areaModel;
 
 app.use(express.json());
+
+app.use("", routes);
 
 
 // Endpoint para criar uma area
@@ -36,6 +39,6 @@ app.get('/area/:id', (req, res) => {
 });
 
 // Inicialização do Servidor
-app.listen(8000, (req, res) => {
+app.listen(8088, (req, res) => {
     console.log('Servidor inicializado...')
 });
